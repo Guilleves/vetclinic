@@ -11,6 +11,9 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/vetclinic?useSSL=false</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
+        
+        <!-- This will create a schema if one doesn't exist, and attempt to modify an existing one to match the mapping you have defined. -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- JDBC connection pool settings ... using built-in test pool -->
         <property name="connection.pool_size">1</property>
