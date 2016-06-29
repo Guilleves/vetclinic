@@ -1,8 +1,18 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "owners")
 public class Owner {
+	
+	@Id
+	private Integer dni;
     private String name, address, email;
-    private Integer phone, dni;
+    private Integer phone;
+    
     
 	public String getName() {
 		return name;

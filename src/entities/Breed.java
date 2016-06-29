@@ -1,8 +1,17 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "breeds")
 public class Breed {
+	
+	@Id
     private Integer code;
     private String description;
+    
 	public Integer getCode() {
 		return code;
 	}

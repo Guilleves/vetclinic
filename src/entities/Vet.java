@@ -2,9 +2,18 @@ package entities;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "vets")
 public class Vet {
+	
+	@Id
+	private Integer dni;
     private String name, address;
-    private Integer license, phone, dni;
+    private Integer license, phone;
     private Date birthday;
     
 	public String getName() {

@@ -1,6 +1,14 @@
 package entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "treatments")
 public class Treatment {
+	
+	@Id
     private Integer code;
     private String description;
     
