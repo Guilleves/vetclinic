@@ -16,6 +16,19 @@ public class Vet {
     private Integer license, phone;
     private Date birthday;
     
+    public Vet(){
+    }
+    
+	public Vet(Integer dni, String name, String address, Integer license, Integer phone, Date birthday) {
+		super();
+		this.dni = dni;
+		this.name = name;
+		this.address = address;
+		this.license = license;
+		this.phone = phone;
+		this.birthday = birthday;
+	}
+    
 	public String getName() {
 		return name;
 	}
@@ -51,5 +64,12 @@ public class Vet {
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+
+	@Override
+	//debugging purposes
+	public String toString() {
+		return "Vet [dni=" + dni + ", name=" + name + ", address=" + address + ", license=" + license + ", phone="
+				+ phone + ", birthday=" + birthday + "]";
 	}
 }
