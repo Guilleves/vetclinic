@@ -1,7 +1,5 @@
 package entities;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,14 +10,14 @@ public class Vet {
 	
 	@Id
 	private Integer dni;
-    private String name, address;
-    private Integer license, phone;
-    private Date birthday;
+    private String name, address, birthday;
+    private Integer license;
+    private Double phone;
     
     public Vet(){
     }
     
-	public Vet(Integer dni, String name, String address, Integer license, Integer phone, Date birthday) {
+	public Vet(Integer dni, String name, String address, Integer license, Double phone, String birthday) {
 		super();
 		this.dni = dni;
 		this.name = name;
@@ -47,10 +45,10 @@ public class Vet {
 	public void setLicense(Integer license) {
 		this.license = license;
 	}
-	public Integer getPhone() {
+	public Double getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(Double phone) {
 		this.phone = phone;
 	}
 	public Integer getDni() {
@@ -59,10 +57,10 @@ public class Vet {
 	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
