@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="C:/Users/guille/Downloads/hibernate-release-5.1.0.Final/hibernate-release-5.1.0.Final/lib/osgi/hibernate-osgi-5.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="C:/Users/guille/Downloads/hibernate-release-5.1.0.Final/hibernate-release-5.1.0.Final/lib/osgi/org.osgi.compendium-4.3.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/guille/Downloads/hibernate-release-5.1.0.Final/hibernate-release-5.1.0.Final/lib/osgi/org.osgi.core-4.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/guille/Downloads/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
