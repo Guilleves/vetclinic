@@ -19,6 +19,26 @@ public class UpdateObject {
 		Session session = factory.getCurrentSession();
 		
 		try{
+			//assume a Vet with this dni exists
+			Integer id = 2;
+			System.out.println(id);
+			//start transaction
+			session.beginTransaction();
+			//retrieve Vet based on the id -- WORKS ONLY WITH THE PK, NOT OTHER FIELDS
+			Vet myVet = session.get(Vet.class, id);
+			System.out.println("dis vet: " + myVet);
+			//update it
+			System.out.println("Now we'll update it");
+			myVet.setName("Esteban");
+			Vet myUpdatedVet = session.get(Vet.class, id);
+			System.out.println("dis vet: " + myUpdatedVet);
+			
+			//ANOTHER QUERY -- update all phone numbers
+			session.createQuery("update Vet set phone=3413020082").executeUpdate();
+
+			//commit (until now, it was only in memory--not the db
+			session.getTransaction().commit();
+			
 			
 		}
 		finally{
