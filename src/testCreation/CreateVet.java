@@ -26,7 +26,7 @@ public class CreateVet {
 		try{
 			//create a Vet object
 			System.out.println("Creating new vet");
-			Vet testVet = new Vet(37333984, "guillermina", "rioja 4368", 40428, Double.parseDouble("3413020082"), "30-05-1993");
+			Vet testVet = new Vet(373339839, "facu", "rioja 4368", 40428, Double.parseDouble("3413020082"), "30-05-1993");
 			
 			//start a transaction
 			session.beginTransaction();
