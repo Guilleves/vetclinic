@@ -18,12 +18,12 @@ public class ReadVet {
 		
 		try{
 			//assume a Vet with this dni exists
-			Integer dni = 37333984;
-			System.out.println(dni);
+			Integer id = 2;
+			System.out.println(id);
 			//start transaction
 			session.beginTransaction();
 			//retrieve Vet based on the id -- WORKS ONLY WITH THE PK, NOT OTHER FIELDS
-			Vet myVet = session.get(Vet.class, dni);
+			Vet myVet = session.get(Vet.class, id);
 			System.out.println("dis vet: " + myVet);
 			//commit
 			session.getTransaction().commit();

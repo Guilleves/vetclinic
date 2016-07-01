@@ -20,17 +20,17 @@ public class UpdateObject {
 		
 		try{
 			//assume a Vet with this dni exists
-			Integer dni = 37333984;
-			System.out.println(dni);
+			Integer id = 2;
+			System.out.println(id);
 			//start transaction
 			session.beginTransaction();
-			//retrieve Vet based on the dni -- WORKS ONLY WITH THE PK, NOT OTHER FIELDS
-			Vet myVet = session.get(Vet.class, dni);
+			//retrieve Vet based on the id -- WORKS ONLY WITH THE PK, NOT OTHER FIELDS
+			Vet myVet = session.get(Vet.class, id);
 			System.out.println("dis vet: " + myVet);
 			//update it
 			System.out.println("Now we'll update it");
 			myVet.setName("Esteban");
-			Vet myUpdatedVet = session.get(Vet.class, dni);
+			Vet myUpdatedVet = session.get(Vet.class, id);
 			System.out.println("dis vet: " + myUpdatedVet);
 			
 			//ANOTHER QUERY -- update all phone numbers

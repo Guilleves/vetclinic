@@ -20,18 +20,18 @@ import entities.Vet;
 			Session session = factory.getCurrentSession();
 			
 			try{
-				//assume a Vet with this dni exists
-				Integer dni = 37333984;
+				//assume a Vet with this id exists
+				Integer id = 2;
 				//start transaction
 				session.beginTransaction();
-				Vet myVet = session.get(Vet.class, dni);
+				Vet myVet = session.get(Vet.class, id);
 				
 				//delete the Vet
 				System.out.println("deleting the vet :" +myVet);
 				session.delete(myVet);
 				
 				//ALT APPROACH WITH A QUERY
-				session.createQuery("delete from Vet where dni = 37333984");
+				session.createQuery("delete from Vet where id = 2");
 				
 				//commit (until now, it was only in memory--not the db)
 				session.getTransaction().commit();
