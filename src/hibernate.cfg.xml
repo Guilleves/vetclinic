@@ -26,6 +26,9 @@
 
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
+		
+		<!-- Generate comments inside the SQL -->
+		<property name="hibernate.use_sql_comments">true</property>
  
     </session-factory>
 
