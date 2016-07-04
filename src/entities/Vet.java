@@ -30,6 +30,18 @@ public class Vet {
 		this.phone = phone;
 		this.birthday = birthday;
 	}
+	
+	//overriding original equals()
+	public boolean equals(Object obj){
+		boolean flag = false;
+		Vet vet = (Vet) obj;
+		if (this.dni == dni){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
     
 	public String getName() {
 		return name;
