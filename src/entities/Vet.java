@@ -84,6 +84,7 @@ public class Vet {
 	}
 
 	@Override
+	//natural key Vet.dni
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;
