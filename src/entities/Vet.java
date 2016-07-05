@@ -1,5 +1,6 @@
 package entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,8 +12,9 @@ import javax.persistence.Table;
 public class Vet {
 	
 	@Id
-	//@GeneratedValue(strategy=GenerationType.IDENTITY)
-	//private Integer id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	@Column(name = "DNI")
 	private Integer dni;
     private String name, address, birthday;
     private Integer license;
