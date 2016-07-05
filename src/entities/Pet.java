@@ -56,4 +56,13 @@ public class Pet {
 		public void setBirthday(Date birthday) {
 			this.birthday = birthday;
 		}
+		public Owner getOwner() {
+			return owner;
+		}
+		public void setOwner(Owner owner) {
+			this.owner = owner;
+		}
+		public Integer getId() {
+			return id;
+		}
 }

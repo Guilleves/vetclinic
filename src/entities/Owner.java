@@ -66,4 +66,13 @@ public class Owner {
 	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
+	public ArrayList<Pet> getPets() {
+		return pets;
+	}
+	public void setPets(ArrayList<Pet> pets) {
+		this.pets = pets;
+	}
+	public Integer getId() {
+		return id;
+	}
 }
