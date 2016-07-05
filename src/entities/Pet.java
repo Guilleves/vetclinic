@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NaturalId;
 
 @Entity
 @Table(name = "pets")
@@ -19,11 +22,15 @@ public class Pet {
 	 	@Id
 	 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 	private Integer id;
-	 	@Column(name = "med_record")
+	 	@NaturalId
+	 	@Column(name = "med_record",
+	 			unique = true)
 	    private Integer medRecord;
 	    private String name;
 	    private Sex sex;
 	    private Date birthday;
+	    @ManyToOne
+	    private Owner owner;
 	    
 		public Integer getMedRecord() {
 			return medRecord;

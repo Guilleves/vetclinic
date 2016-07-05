@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NaturalId;
+
 @Entity
 @Table(name = "owners")
 public class Owner {
@@ -23,12 +25,13 @@ public class Owner {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	@Column(name = "DNI")
+	@NaturalId
+	@Column(name = "DNI",
+			unique = true)
 	private Integer dni;
     private String name, address, email;
     private Integer phone;
-    
-	@OneToMany(mappedBy = "owners", 
+    @OneToMany(mappedBy = "owners", 
 				cascade = CascadeType.ALL, 
 				orphanRemoval = true)
     private ArrayList<Pet> pets = new ArrayList<Pet>();
