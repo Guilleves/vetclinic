@@ -15,7 +15,8 @@ import org.hibernate.annotations.NaturalId;
 @Entity
 @Table(name = "pets")
 public class Pet {
-	 public enum Sex{
+
+	public enum Sex{
 	        F,
 	        M,
 	    }
@@ -31,6 +32,19 @@ public class Pet {
 	    private Date birthday;
 	    @ManyToOne
 	    private Owner owner;
+	    
+	    public Pet(){
+	    	
+	    }
+	    
+	    public Pet(Integer medRecord, String name, Sex sex, Date birthday, Owner owner) {
+			super();
+			this.medRecord = medRecord;
+			this.name = name;
+			this.sex = sex;
+			this.birthday = birthday;
+			this.owner = owner;
+		}
 	    
 		public Integer getMedRecord() {
 			return medRecord;

@@ -6,13 +6,9 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -30,11 +26,26 @@ public class Owner {
 			unique = true)
 	private Integer dni;
     private String name, address, email;
-    private Integer phone;
-    @OneToMany(mappedBy = "owners", 
+    private Double phone;
+    //mappedBy points to the attribute name in the ManyToOne side (private Owner owner)
+    @OneToMany(mappedBy = "owner", 
 				cascade = CascadeType.ALL, 
 				orphanRemoval = true)
-    private ArrayList<Pet> pets = new ArrayList<Pet>();
+    private List<Pet> pets = new ArrayList<>();
+    
+	public Owner(){
+		
+	}
+    
+    public Owner(Integer dni, String name, String address, String email, Double phone, ArrayList<Pet> pets) {
+		super();
+		this.dni = dni;
+		this.name = name;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.pets = pets;
+	}
     
     public String getName() {
 		return name;
@@ -54,10 +65,10 @@ public class Owner {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Integer getPhone() {
+	public Double getPhone() {
 		return phone;
 	}
-	public void setPhone(Integer phone) {
+	public void setPhone(Double phone) {
 		this.phone = phone;
 	}
 	public Integer getDni() {
@@ -66,7 +77,7 @@ public class Owner {
 	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
-	public ArrayList<Pet> getPets() {
+	public List<Pet> getPets() {
 		return pets;
 	}
 	public void setPets(ArrayList<Pet> pets) {
