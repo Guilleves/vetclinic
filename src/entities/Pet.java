@@ -23,10 +23,6 @@ public class Pet {
 	 	@Id
 	 	@GeneratedValue(strategy = GenerationType.AUTO)
 	 	private Integer id;
-	 	@NaturalId
-	 	@Column(name = "med_record",
-	 			unique = true)
-	    private Integer medRecord;
 	    private String name;
 	    private Sex sex;
 	    private Date birthday;
@@ -37,20 +33,16 @@ public class Pet {
 	    	
 	    }
 	    
-	    public Pet(Integer medRecord, String name, Sex sex, Date birthday, Owner owner) {
+	    public Pet(String name, Sex sex, Date birthday, Owner owner) {
 			super();
-			this.medRecord = medRecord;
 			this.name = name;
 			this.sex = sex;
 			this.birthday = birthday;
 			this.owner = owner;
 		}
 	    
-		public Integer getMedRecord() {
-			return medRecord;
-		}
-		public void setMedRecord(Integer medRecord) {
-			this.medRecord = medRecord;
+		public Integer getId() {
+			return id;
 		}
 		public String getName() {
 			return name;
@@ -76,7 +68,5 @@ public class Pet {
 		public void setOwner(Owner owner) {
 			this.owner = owner;
 		}
-		public Integer getId() {
-			return id;
-		}
+
 }

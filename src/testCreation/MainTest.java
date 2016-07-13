@@ -1,10 +1,14 @@
 package testCreation;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import entities.*;
+import entities.Owner;
+import entities.Pet;
+import entities.Pet.Sex;
 public class MainTest {
 
 	public static void main(String[] args) {
@@ -35,7 +39,17 @@ public class MainTest {
 						owner2.setAddress("rioja 4368");
 						owner2.setEmail("guilleves@gmail.com");
 						
+						System.out.println("Creating new pet");
+						Pet pet1 = new Pet("Yuki", Sex.M , new Date(), owner2);
 
+						System.out.println("Creating new pet");
+						Pet pet2 = new Pet("Confite", Sex.F , new Date(), owner2);
+						
+						System.out.println("Creating new pet");
+						Pet pet3 = new Pet("Lola", Sex.M , new Date(), testOwner);
+
+
+						
 						
 						//start a transaction
 						session.beginTransaction();
@@ -44,6 +58,10 @@ public class MainTest {
 						System.out.println("Saving the temporary vet");
 						session.save(testOwner);
 						session.save(owner2);
+						session.save(pet1);
+						session.save(pet2);
+						session.save(pet3);
+
 						
 						//commit transaction
 						session.getTransaction().commit();
