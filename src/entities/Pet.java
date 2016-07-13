@@ -73,4 +73,12 @@ public class Pet {
 			this.owner = owner;
 		}
 
+		public List<Vet> getVets() {
+			return vets;
+		}
+
+		public void setVets(List<Vet> vets) {
+			this.vets = vets;
+		}
+
 }

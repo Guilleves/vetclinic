@@ -115,4 +115,16 @@ public class Vet {
 		}
 		return true;
 	}
+
+	public List<Pet> getPets() {
+		return pets;
+	}
+
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
+	}
+
+	public Integer getId() {
+		return id;
+	}
 }

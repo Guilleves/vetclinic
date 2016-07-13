@@ -3,11 +3,13 @@ package entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "fees")
-public class Fee {
+@IdClass(TreatmentFeeId.class)
+public class TreatmentFee {
     private Date expirationDate, paymentDate;
     private Double value;
     
