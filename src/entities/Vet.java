@@ -1,10 +1,15 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +24,9 @@ public class Vet {
     private String name, address, birthday;
     private Integer license;
     private Double phone;
+    @ManyToMany(cascade = {CascadeType.PERSIST, 
+    					   CascadeType.MERGE})
+    private List<Pet> pets = new ArrayList<>();
     
     public Vet(){
     }
