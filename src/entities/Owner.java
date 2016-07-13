@@ -23,14 +23,15 @@ public class Owner {
 	private Integer id;
 	@NaturalId
 	@Column(name = "DNI",
-			unique = true)
+			unique = true,
+			nullable = false)
 	private Integer dni;
     private String name, address, email;
     private Double phone;
     //mappedBy points to the attribute name in the ManyToOne side (private Owner owner)
     @OneToMany(mappedBy = "owner", 
-				cascade = CascadeType.ALL, 
-				orphanRemoval = true)
+			   cascade = CascadeType.ALL, 
+			   orphanRemoval = true)
     private List<Pet> pets = new ArrayList<>();
     
 	public Owner(){

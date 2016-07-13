@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +28,8 @@ public class Vet {
     @ManyToMany(cascade = {CascadeType.PERSIST, 
     					   CascadeType.MERGE})
     private List<Pet> pets = new ArrayList<>();
+    @OneToMany(mappedBy = "vet")
+    private List<Appointment> appointments = new ArrayList<>();
     
     public Vet(){
     }
