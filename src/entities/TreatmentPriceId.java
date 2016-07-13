@@ -3,19 +3,18 @@ package entities;
 import java.io.Serializable;
 import java.util.Date;
 
-public class TreatmentFeeId implements Serializable{
-	//required by the class
+public class TreatmentPriceId implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	//composite PK
+	//composite PK from Treatment and TreatmentPrice
 	private Date date;
 	private Treatment treatment;
 	
 	//constructors
-	public TreatmentFeeId(){
+	public TreatmentPriceId(){
 		
 	}
-	
-	public TreatmentFeeId(Date date, Treatment treatment) {
+	public TreatmentPriceId(Date date, Treatment treatment) {
 		super();
 		this.date = date;
 		this.treatment = treatment;
@@ -24,16 +23,19 @@ public class TreatmentFeeId implements Serializable{
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
 	public Treatment getTreatment() {
 		return treatment;
 	}
+
 	public void setTreatment(Treatment treatment) {
 		this.treatment = treatment;
 	}
-	//overrude hashcode and equals
+	//override hashcode and equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -53,7 +55,7 @@ public class TreatmentFeeId implements Serializable{
 		if (getClass() != obj.getClass()) {
 			return false;
 		}
-		TreatmentFeeId other = (TreatmentFeeId) obj;
+		TreatmentPriceId other = (TreatmentPriceId) obj;
 		if (date == null) {
 			if (other.date != null) {
 				return false;
@@ -70,4 +72,6 @@ public class TreatmentFeeId implements Serializable{
 		}
 		return true;
 	}
+	
+	
 }
