@@ -25,7 +25,7 @@ public class Vet {
 		super();
 		this.dni = dni;
 		this.name = name;
-		this.address = address;
+		this.address = address; 
 		this.license = license;
 		this.phone = phone;
 		this.birthday = birthday;
