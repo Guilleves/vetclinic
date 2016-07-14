@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -27,6 +28,8 @@ public class Treatment {
 	@OneToMany(cascade = CascadeType.ALL,
 						 mappedBy = "treatment")
 	private List<TreatmentPrice> prices = new ArrayList<>();
+	@ManyToMany(mappedBy = "treatments")
+	private List<Appointment> appointments = new ArrayList<>();
     
 	public Integer getCode() {
 		return code;

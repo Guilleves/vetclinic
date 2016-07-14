@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -34,6 +35,9 @@ public class Appointment {
 	@OneToMany(mappedBy = "appointment",
 			   cascade = CascadeType.ALL)
 	private List<AppointmentInstallments> installments = new ArrayList<>();
+	@ManyToMany(cascade = {CascadeType.PERSIST, 
+						   CascadeType.MERGE})
+	private List<Treatment> treatments = new ArrayList<>();
 
 	
 	
