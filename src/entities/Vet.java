@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,28 +14,41 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.NaturalId;
+
 @Entity
 @Table(name = "vets")
 public class Vet {
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	@Column(name = "DNI")
+	@NaturalId
+	@Column(name = "LICENSE",
+			unique = true,
+			nullable = false)
+	private Integer license;
+	@Column(name = "DNI",
+			unique = true,
+			nullable = false)
 	private Integer dni;
-    private String name, address, birthday;
-    private Integer license;
+	@Column(name = "NAME",
+			nullable = false)
+    private String name;
+	@Column(name = "ADDRESS",
+			nullable = false)
+	private String address;
+	@Column(name = "BIRTHDAY")
+	private Date birthday;
+    @Column(name = "PHONE")
     private Double phone;
-    @ManyToMany(cascade = {CascadeType.PERSIST, 
+    @ManyToMany(cascade = {CascadeType.PERSIST, //a Vet may have treated many pets
     					   CascadeType.MERGE})
     private List<Pet> pets = new ArrayList<>();
-    @OneToMany(mappedBy = "vet")
+    @OneToMany(mappedBy = "vet") //a Vet may have taken part in many appointments
     private List<Appointment> appointments = new ArrayList<>();
     
-    public Vet(){
-    }
-    
-	public Vet(Integer dni, String name, String address, Integer license, Double phone, String birthday) {
+    public Vet(){    }
+    public Vet(Integer dni, String name, String address, Integer license, Double phone, Date birthday) {
 		super();
 		this.dni = dni;
 		this.name = name;
@@ -74,10 +88,10 @@ public class Vet {
 	public void setDni(Integer dni) {
 		this.dni = dni;
 	}
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

@@ -3,18 +3,17 @@ package entities;
 import java.io.Serializable;
 
 public class BreedId implements Serializable {
-
 	private static final long serialVersionUID = 1L;
+	//composite PK: a Breed identifies by itself and the Species it belongs to
 	private Species species;
 	private Breed breed;
-	
-	private BreedId(){	}
-	
+	//constructor
 	public BreedId(Species species, Breed breed) {
 		super();
 		this.species = species;
 		this.breed = breed;
 	}
+	//getters and setters
 	public Species getSpecies() {
 		return species;
 	}
@@ -27,7 +26,7 @@ public class BreedId implements Serializable {
 	public void setBreed(Breed breed) {
 		this.breed = breed;
 	}
-
+	//override hashcode and equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;

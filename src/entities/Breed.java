@@ -21,34 +21,31 @@ import org.hibernate.annotations.NaturalId;
 @Table(name = "breeds")
 @IdClass(BreedId.class)
 public class Breed {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@NaturalId
-	@Column(name = "Code",
+	@Column(name = "CODE",
+			unique = true,
 			nullable = false)
     private Integer code;
-	@Column(name = "Description")
+	@Column(name = "DESCRIPTION")
     private String description;
-	//a breed belongs to a species -- maps the OneToMany in Species
-	@ManyToOne
+	@ManyToOne //a breed belongs to a species -- maps the OneToMany in Species bc it's bidirectional
 	@JoinColumn(name = "species_id")
 	private Species species;
-	//a breed can have many pets registered under it 
-	@OneToMany(mappedBy = "breed",
-			   cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "breed", //a breed can have many pets registered under it 
+			   cascade = CascadeType.ALL) //all = propagates all EntityManager ops to the relating entities
 	private List<Pet> pets = new ArrayList<>();
-	
+	//constructors
 	public Breed(){		}
-	
 	public Breed(Integer code, String description, Species species) {
 		super();
 		this.code = code;
 		this.description = description;
 		this.species = species;
 	}
-    
+    //getters & setters
 	public Integer getCode() {
 		return code;
 	}
@@ -60,6 +57,21 @@ public class Breed {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public Species getSpecies() {
+		return species;
+	}
+	public void setSpecies(Species species) {
+		this.species = species;
+	}
+	public List<Pet> getPets() {
+		return pets;
+	}
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
+	}
+	public Integer getId() {
+		return id;
 	}
     
 

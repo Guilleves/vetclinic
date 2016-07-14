@@ -17,7 +17,6 @@ import org.hibernate.annotations.NaturalId;
 @Entity
 @Table(name = "owners")
 public class Owner {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -26,18 +25,22 @@ public class Owner {
 			unique = true,
 			nullable = false)
 	private Integer dni;
-    private String name, address, email;
+	@Column(name = "NAME",
+			nullable = false)
+    private String name;
+	@Column(name = "ADDRESS",
+			nullable = false)
+    private String address;
+	@Column(name = "EMAIL")
+    private String email;
+	@Column(name = "PHONE")
     private Double phone;
-    //mappedBy points to the attribute name in the ManyToOne side (private Owner owner)
-    @OneToMany(mappedBy = "owner", 
+    @OneToMany(mappedBy = "owner", //mappedBy points to the attribute name in the ManyToOne side (private Owner owner)
 			   cascade = CascadeType.ALL, 
 			   orphanRemoval = true)
     private List<Pet> pets = new ArrayList<>();
-    
-	public Owner(){
-		
-	}
-    
+    //constructors
+	public Owner(){ 	}
     public Owner(Integer dni, String name, String address, String email, Double phone, ArrayList<Pet> pets) {
 		super();
 		this.dni = dni;
@@ -47,7 +50,7 @@ public class Owner {
 		this.phone = phone;
 		this.pets = pets;
 	}
-    
+    //getters & setters
     public String getName() {
 		return name;
 	}
@@ -86,5 +89,8 @@ public class Owner {
 	}
 	public Integer getId() {
 		return id;
+	}
+	public void setPets(List<Pet> pets) {
+		this.pets = pets;
 	}
 }

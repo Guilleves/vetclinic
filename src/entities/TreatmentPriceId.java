@@ -11,9 +11,7 @@ public class TreatmentPriceId implements Serializable {
 	private Treatment treatment;
 	
 	//constructors
-	public TreatmentPriceId(){
-		
-	}
+	public TreatmentPriceId(){    }
 	public TreatmentPriceId(Date date, Treatment treatment) {
 		super();
 		this.date = date;

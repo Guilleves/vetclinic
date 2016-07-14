@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,33 +18,33 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pets")
 public class Pet {
-
-	public enum Sex{
+	 public static enum Sex{
 	        F,
 	        M,
-	    }
+	 }
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	 private Integer id;
+	 @Column(name = "NAME",
+			 nullable = false)
 	 private String name;
+	 @Column(name = "SEX",
+			 nullable = false)
 	 private Sex sex;
+	 @Column(name = "BIRTHDAY")
 	 private Date birthday;
-	 //maps the pet to a single owner
-	 @ManyToOne
+	 @ManyToOne //maps the pet to a single owner
 	 @JoinColumn(name = "owner_id")
 	 private Owner owner;
-	 //maps the bidirectional ManyToMany to the pets array in Vet
-	 @ManyToMany(mappedBy = "pets")
+	 @ManyToMany(mappedBy = "pets")	 //maps the bidirectional ManyToMany to the pets array in Vet
 	 private List<Vet> vets = new ArrayList<>();
-	 //also, a pet has a Breed
-	 @ManyToOne
+	 @ManyToOne //also, a pet has a Breed
 	 @JoinColumn(name = "breed_id")
 	 private Breed breed;
-	 @OneToMany(mappedBy = "pet")
+	 @OneToMany(mappedBy = "pet") //u can have many appointments for the same pet
 	 private List<Appointment> appointments = new ArrayList<>();
-	    
+	 //constructors   
 	 public Pet(){   }
-	    
 	 public Pet(String name, Sex sex, Date birthday, Owner owner) {
 		super();
 		this.name = name;
@@ -51,7 +52,7 @@ public class Pet {
 		this.birthday = birthday;
 		this.owner = owner;
 	}
-	    
+	//getters & setters    
 	public Integer getId() {
 		return id;
 	}
@@ -84,6 +85,18 @@ public class Pet {
 	}
 	public void setVets(List<Vet> vets) {
 		this.vets = vets;
+	}
+	public Breed getBreed() {
+		return breed;
+	}
+	public void setBreed(Breed breed) {
+		this.breed = breed;
+	}
+	public List<Appointment> getAppointments() {
+		return appointments;
+	}
+	public void setAppointments(List<Appointment> appointments) {
+		this.appointments = appointments;
 	}
 
 }
