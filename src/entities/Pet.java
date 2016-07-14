@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pets")
 public class Pet {
-	 public static enum Sex{
+	public static enum Sex{
 	        F,
 	        M,
 	 }
@@ -45,12 +45,21 @@ public class Pet {
 	 private List<Appointment> appointments = new ArrayList<>();
 	 //constructors   
 	 public Pet(){   }
-	 public Pet(String name, Sex sex, Date birthday, Owner owner) {
+	 public Pet(String name, Sex sex){
+		 super();
+		 this.name = name;
+		 this.sex = sex;
+	 }
+	 public Pet(String name, Sex sex, Date birthday, Owner owner, List<Vet> vets, Breed breed,
+				List<Appointment> appointments) {
 		super();
 		this.name = name;
 		this.sex = sex;
 		this.birthday = birthday;
 		this.owner = owner;
+		this.vets = vets;
+		this.breed = breed;
+		this.appointments = appointments;
 	}
 	//getters & setters    
 	public Integer getId() {

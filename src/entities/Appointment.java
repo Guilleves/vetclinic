@@ -44,6 +44,23 @@ public class Appointment {
 						   CascadeType.MERGE},
 				fetch = FetchType.LAZY) //an appointment may indicate several treatments
 	private List<Treatment> treatments = new ArrayList<>();
+	public Appointment(){	}
+	public Appointment(Date dateTime, Vet vet, Pet pet){
+		super();
+		this.dateTime = dateTime;
+		this.vet = vet;
+		this.pet = pet;
+	}
+	public Appointment(Date dateTime, String result, Vet vet, Pet pet, List<AppointmentInstallments> installments,
+			List<Treatment> treatments) {
+		super();
+		this.dateTime = dateTime;
+		this.result = result;
+		this.vet = vet;
+		this.pet = pet;
+		this.installments = installments;
+		this.treatments = treatments;
+	}	
 	public Date getDateTime() {
 		return dateTime;
 	}

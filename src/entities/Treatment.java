@@ -34,6 +34,11 @@ public class Treatment {
 	private List<Appointment> appointments = new ArrayList<>();
 	
 	public Treatment(){		}
+	public Treatment(Integer code, String description) {
+		super();
+		this.code = code;
+		this.description = description;
+	}
 	public Treatment(Integer code, String description, List<TreatmentPrice> prices, List<Appointment> appointments) {
 		super();
 		this.code = code;

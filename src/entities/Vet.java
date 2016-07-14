@@ -34,20 +34,25 @@ public class Vet {
 	@Column(name = "NAME",
 			nullable = false)
     private String name;
-	@Column(name = "ADDRESS",
-			nullable = false)
+	@Column(name = "ADDRESS")
 	private String address;
 	@Column(name = "BIRTHDAY")
 	private Date birthday;
     @Column(name = "PHONE")
     private Double phone;
     @ManyToMany(cascade = {CascadeType.PERSIST, //a Vet may have treated many pets
-    					   CascadeType.MERGE})
+    					   CascadeType.MERGE}) //don't delete the Pet when you delete the Vet
     private List<Pet> pets = new ArrayList<>();
     @OneToMany(mappedBy = "vet") //a Vet may have taken part in many appointments
     private List<Appointment> appointments = new ArrayList<>();
     
     public Vet(){    }
+	public Vet(Integer license, Integer dni, String name){
+		super();
+		this.license = license;
+		this.dni = dni;
+		this.name = name;
+	}
     public Vet(Integer dni, String name, String address, Integer license, Double phone, Date birthday) {
 		super();
 		this.dni = dni;

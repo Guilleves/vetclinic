@@ -28,8 +28,7 @@ public class Owner {
 	@Column(name = "NAME",
 			nullable = false)
     private String name;
-	@Column(name = "ADDRESS",
-			nullable = false)
+	@Column(name = "ADDRESS")
     private String address;
 	@Column(name = "EMAIL")
     private String email;
@@ -41,6 +40,11 @@ public class Owner {
     private List<Pet> pets = new ArrayList<>();
     //constructors
 	public Owner(){ 	}
+	public Owner(Integer dni, String name){
+		super();
+		this.dni = dni;
+		this.name = name;
+	}
     public Owner(Integer dni, String name, String address, String email, Double phone, ArrayList<Pet> pets) {
 		super();
 		this.dni = dni;

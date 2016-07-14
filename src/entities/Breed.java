@@ -39,6 +39,10 @@ public class Breed {
 	private List<Pet> pets = new ArrayList<>();
 	//constructors
 	public Breed(){		}
+	public Breed(Integer code, String description) {
+		super();
+		this.code = code;
+	}
 	public Breed(Integer code, String description, Species species) {
 		super();
 		this.code = code;

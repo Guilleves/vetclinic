@@ -33,6 +33,11 @@ public class Species {
 	private List<Breed> breeds = new ArrayList<>();
 	//constructors
 	public Species(){	}
+	public Species(Integer code, String description) {
+		super();
+		this.code = code;
+		this.description = description;
+	}
 	public Species(Integer code, String description, List<Breed> breeds) {
 		super();
 		this.code = code;
