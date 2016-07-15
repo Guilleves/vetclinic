@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -24,6 +25,7 @@ public class Pet {
 	 }
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
+	 @Column(name = "PET_ID")
 	 private Integer id;
 	 @Column(name = "NAME",
 			 nullable = false)
@@ -39,7 +41,8 @@ public class Pet {
 	 @ManyToMany(mappedBy = "pets")	 //maps the bidirectional ManyToMany to the pets array in Vet
 	 private List<Vet> vets = new ArrayList<>();
 	 @ManyToOne //also, a pet has a Breed
-	 @JoinColumn(name = "BREED_ID")
+	 @JoinColumns({@JoinColumn(name = "BREED_ID"),
+		 		   @JoinColumn(name = "SPECIES_ID")})
 	 private Breed breed;
 	 @OneToMany(mappedBy = "pet") //u can have many appointments for the same pet
 	 private List<Appointment> appointments = new ArrayList<>();

@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @IdClass(AppointmentId.class)
 public class Appointment {
 	@Id //date time is PK because a Vet may have treated a Pet twice
-	@Column(name = "DATE_TIME",
+	@Column(name = "APPOINTMENT_ID",
 			nullable = false)
     private Date dateTime;
 	@Column(name = "RESULT")

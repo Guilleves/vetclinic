@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @IdClass(AppointmentInstallmentsId.class)
 public class AppointmentInstallments {
 	@Id
-	@Column(name = "EXPIRATION_DATE")
+	@Column(name = "INSTALLMENT_ID")
 	private Date expirationDate;
 	@Column(name = "PAYMENT_DATE") //when the installment is actually paid
 	private Date paymentDate;

@@ -19,6 +19,7 @@ import org.hibernate.annotations.NaturalId;
 public class Species {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "SPECIES_ID")
 	private Integer id;
 	@NaturalId
 	@Column(name = "CODE",

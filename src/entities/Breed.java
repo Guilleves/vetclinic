@@ -37,18 +37,21 @@ public class Breed {
 	private Species species;
 	@OneToMany(mappedBy = "breed", //a breed can have many pets registered under it 
 			   cascade = CascadeType.ALL) //all = propagates all EntityManager ops to the relating entities
-	private List<Pet> pets = new ArrayList<>();
+	private List<Pet> pets;
 	//constructors
-	public Breed(){		}
+	public Breed(){
+		this.pets = new ArrayList<Pet>();
+	}
 	public Breed(Integer code, String description) {
 		super();
 		this.code = code;
 	}
-	public Breed(Integer code, String description, Species species) {
+	public Breed(Integer code, String description, Species species, Pet pets) {
 		super();
 		this.code = code;
 		this.description = description;
 		this.species = species;
+		this.pets = new ArrayList<Pet>();
 	}
     //getters & setters
 	public Integer getCode() {

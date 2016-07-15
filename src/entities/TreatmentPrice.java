@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @IdClass(TreatmentPriceId.class)
 public class TreatmentPrice {
 	@Id
+	@Column(name = "PRICES_ID")
 	private Date date;
 	@Column(name = "PRICE",
 			nullable = false)
