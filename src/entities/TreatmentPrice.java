@@ -25,7 +25,13 @@ public class TreatmentPrice {
 	@ManyToOne //many prices correspond to the same Treatment
 	@JoinColumn(name = "treatment_id")
 	private Treatment treatment;
-
+	public TreatmentPrice(){	}
+	public TreatmentPrice(Date date, Double price, Treatment treatment) {
+		super();
+		this.date = date;
+		this.price = price;
+		this.treatment = treatment;
+	}
 	public Date getDate() {
 		return date;
 	}
