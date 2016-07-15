@@ -22,6 +22,7 @@ import org.hibernate.annotations.NaturalId;
 @IdClass(BreedId.class)
 public class Breed {
 	@Id
+	@Column(name = "BREED_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	@NaturalId

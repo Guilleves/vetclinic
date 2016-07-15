@@ -39,7 +39,7 @@ public class Pet {
 	 @ManyToMany(mappedBy = "pets")	 //maps the bidirectional ManyToMany to the pets array in Vet
 	 private List<Vet> vets = new ArrayList<>();
 	 @ManyToOne //also, a pet has a Breed
-	 @JoinColumn(name = "breed_id")
+	 @JoinColumn(name = "BREED_ID")
 	 private Breed breed;
 	 @OneToMany(mappedBy = "pet") //u can have many appointments for the same pet
 	 private List<Appointment> appointments = new ArrayList<>();
