@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -22,7 +23,9 @@ public class AppointmentInstallments {
 	@Column(name = "AMOUNT")
 	private double amount;
 	@ManyToOne//an appointment can be paid in several installments
-	@JoinColumn(name = "appointment_id")
+	@JoinColumns({@JoinColumn(name = "APPOINTMENT_ID"),
+				  @JoinColumn(name = "VET_ID"),
+				  @JoinColumn(name = "PET_ID")})
 	private Appointment appointment;
 	//constructors
 	public AppointmentInstallments(){ 	}

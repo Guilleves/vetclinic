@@ -21,6 +21,7 @@ import org.hibernate.annotations.NaturalId;
 public class Vet {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "VET_ID")
 	private Integer id;
 	@NaturalId
 	@Column(name = "LICENSE",

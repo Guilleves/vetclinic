@@ -31,10 +31,10 @@ public class Appointment {
         INSTALLMENT,
     }
 	@ManyToOne //a vet may have participated in several appointments
-	@JoinColumn(name = "vet_id")
+	@JoinColumn(name = "VET_ID")
 	private Vet vet;
 	@ManyToOne //a pet may have been to several appointments
-	@JoinColumn(name = "pet_id")
+	@JoinColumn(name = "PET_ID")
 	private Pet pet;
 	@OneToMany(mappedBy = "appointment",//you can pay in installments 
 			   cascade = CascadeType.ALL,
