@@ -8,14 +8,14 @@ public class TreatmentPriceId implements Serializable {
 	private static final long serialVersionUID = 1L;
 	//composite PK from Treatment and TreatmentPrice
 	private Date date;
-	private Treatment treatment;
+	private Integer id;
 	
 	//constructors
 	public TreatmentPriceId(){    }
-	public TreatmentPriceId(Date date, Treatment treatment) {
+	public TreatmentPriceId(Date date, Integer id) {
 		super();
 		this.date = date;
-		this.treatment = treatment;
+		this.id = id;
 	}
 	//getters & setters
 	public Date getDate() {
@@ -26,12 +26,12 @@ public class TreatmentPriceId implements Serializable {
 		this.date = date;
 	}
 
-	public Treatment getTreatment() {
-		return treatment;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setTreatment(Treatment treatment) {
-		this.treatment = treatment;
+	public void setTreatment(Integer id) {
+		this.id = id;
 	}
 	//override hashcode and equals
 	@Override
@@ -39,7 +39,7 @@ public class TreatmentPriceId implements Serializable {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + ((treatment == null) ? 0 : treatment.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 	@Override
@@ -61,15 +61,15 @@ public class TreatmentPriceId implements Serializable {
 		} else if (!date.equals(other.date)) {
 			return false;
 		}
-		if (treatment == null) {
-			if (other.treatment != null) {
+		if (id == null) {
+			if (other.id != null) {
 				return false;
 			}
-		} else if (!treatment.equals(other.treatment)) {
+		} else if (!id.equals(other.id)) {
 			return false;
 		}
 		return true;
 	}
-	
+
 	
 }

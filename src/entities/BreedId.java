@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class BreedId implements Serializable {
 	private static final long serialVersionUID = 1L;
-	//composite PK: a Breed identifies by itself and the Species it belongs to
+	//composite PK: a Breed identifies by its ID and the Species it belongs to
 	private Species species;
-	private Breed breed;
+	private Integer id;
 	//constructor
-	public BreedId(Species species, Breed breed) {
+	public BreedId(Species species, Integer id) {
 		super();
 		this.species = species;
-		this.breed = breed;
+		this.id = id;
 	}
 	//getters and setters
 	public Species getSpecies() {
@@ -20,22 +20,21 @@ public class BreedId implements Serializable {
 	public void setSpecies(Species species) {
 		this.species = species;
 	}
-	public Breed getBreed() {
-		return breed;
+	public Integer getId() {
+		return id;
 	}
-	public void setBreed(Breed breed) {
-		this.breed = breed;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	//override hashcode and equals
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((breed == null) ? 0 : breed.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((species == null) ? 0 : species.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -48,11 +47,11 @@ public class BreedId implements Serializable {
 			return false;
 		}
 		BreedId other = (BreedId) obj;
-		if (breed == null) {
-			if (other.breed != null) {
+		if (id == null) {
+			if (other.id != null) {
 				return false;
 			}
-		} else if (!breed.equals(other.breed)) {
+		} else if (!id.equals(other.id)) {
 			return false;
 		}
 		if (species == null) {
@@ -64,4 +63,6 @@ public class BreedId implements Serializable {
 		}
 		return true;
 	}
+
+
 }
