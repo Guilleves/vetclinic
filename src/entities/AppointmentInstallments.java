@@ -23,6 +23,7 @@ public class AppointmentInstallments {
 	@Column(name = "AMOUNT")
 	private double amount;
 	@ManyToOne//an appointment can be paid in several installments
+	//the 3 columns correspond to the PK of the attribute i'm mapping (appointment)
 	@JoinColumns({@JoinColumn(name = "APPOINTMENT_ID"),
 				  @JoinColumn(name = "VET_ID"),
 				  @JoinColumn(name = "PET_ID")})

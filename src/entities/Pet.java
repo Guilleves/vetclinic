@@ -41,6 +41,7 @@ public class Pet {
 	 @ManyToMany(mappedBy = "pets")	 //maps the bidirectional ManyToMany to the pets array in Vet
 	 private List<Vet> vets = new ArrayList<>();
 	 @ManyToOne //also, a pet has a Breed
+	 //the 2 columns correspond to the attribute i'm mapping (breed)
 	 @JoinColumns({@JoinColumn(name = "BREED_ID"),
 		 		   @JoinColumn(name = "SPECIES_ID")})
 	 private Breed breed;
