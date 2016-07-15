@@ -23,7 +23,7 @@ public class TreatmentPrice {
 	private Double price;// price is just an attribute
 	@Id
 	@ManyToOne //many prices correspond to the same Treatment
-	@JoinColumn(name = "treatment_id")
+	@JoinColumn(name = "TREATMENT_ID")
 	private Treatment treatment;
 	public TreatmentPrice(){	}
 	public TreatmentPrice(Date date, Double price, Treatment treatment) {
