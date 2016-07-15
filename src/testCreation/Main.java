@@ -4,14 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import entities.Appointment;
-import entities.Breed;
-import entities.Owner;
-import entities.Pet;
+import entities.*;
 import entities.Pet.Sex;
-import entities.Species;
-import entities.Treatment;
-import entities.Vet;
 
 public class Main {
 
@@ -20,13 +14,19 @@ public class Main {
 				// configure parameters are not necessary IF cfg's file name is
 				// the default
 				.configure("hibernate.cfg.xml")
-				.addAnnotatedClass(Owner.class)
-				.addAnnotatedClass(Pet.class)
-				.addAnnotatedClass(Vet.class)
-				.addAnnotatedClass(Appointment.class)
-				.addAnnotatedClass(Breed.class)
-				.addAnnotatedClass(Species.class)
-				.addAnnotatedClass(Treatment.class)
+			    .addAnnotatedClass(Owner.class)
+			    .addAnnotatedClass(Pet.class)
+			    .addAnnotatedClass(Vet.class)
+			    .addAnnotatedClass(Appointment.class)
+			    .addAnnotatedClass(AppointmentId.class)
+			    .addAnnotatedClass(AppointmentInstallments.class)
+			    .addAnnotatedClass(AppointmentInstallmentsId.class)
+			    .addAnnotatedClass(Breed.class)
+			    .addAnnotatedClass(BreedId.class)
+			    .addAnnotatedClass(Species.class)
+			    .addAnnotatedClass(Treatment.class)
+			    .addAnnotatedClass(TreatmentPrice.class)
+			    .addAnnotatedClass(TreatmentPriceId.class)
 				.buildSessionFactory();
 		
 		Session session = factory.getCurrentSession();
