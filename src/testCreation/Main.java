@@ -63,6 +63,7 @@ public class Main {
 			Treatment t5 = new Treatment(14, "X-Ray");
 			Treatment t6 = new Treatment(15, "Surgery");
 			
+			session.beginTransaction();
 			System.out.println("Saving them");
 			session.save(o1);session.save(o2);session.save(o3);
 			session.save(p1);session.save(p2);session.save(p3);session.save(p4);session.save(p5);session.save(p6);
@@ -72,6 +73,7 @@ public class Main {
 			
 			System.out.println("Commiting changes to the DB");
 			session.getTransaction().commit();
+			System.out.println("Success");
 			
 			
 			
